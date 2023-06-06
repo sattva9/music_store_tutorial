@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+
+{% block add_music %}
+
+<form action="/add_music_to_db" method="post">
+  <div class="mb-3">
+    <label for="songName" class="form-label">Song Name</label>
+    <input type="text" class="form-control" id="songName" name="song" placeholder="Enter song name">
+  </div>
+  <div class="mb-3">
+    <label for="artistName" class="form-label">Artist Name</label>
+    <input type="text" class="form-control" id="artistName" name="artist" placeholder="Enter artist name">
+  </div>
+  <div class="mb-3">
+    <label for="genre" class="form-label">Genre</label>
+    <input type="text" class="form-control" id="genre" name="genre" placeholder="Enter genre">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Add Song</button>
+</form>
+
+{% endblock %}

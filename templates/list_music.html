@@ -1,0 +1,33 @@
+{% extends "index.html" %}
+
+{% block music_list %}
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Song Name</th>
+      <th scope="col">Artist Name</th>
+      <th scope="col">Genre</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for music in data %}
+    <tr>
+      <th scope="row">{{ music.id }}</th>
+      <td>{{ music.song }}</td>
+      <td>{{ music.artist }}</td>
+      <td>{{ music.genre }}</td>
+      <td>
+        <a href="{{ "/edit_music/{}"|format(music.id) }}" class="btn btn-sm btn-primary" role="button">Edit</a>
+        <a href="{{ "/delete_music/{}"|format(music.id) }}" class="btn btn-sm btn-danger" role="button">Delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<a href="/add_music" class="btn btn-success" role="button">Add Music</a>
+
+{% endblock %}

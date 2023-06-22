@@ -42,3 +42,22 @@ pub fn insert_data_to_db(mut music: Music) -> Result<(), MusicError> {
     db.insert(music.id, music);
     Ok(())
 }
+
+pub fn get_data_by_id(id: u64) -> Result<Option<Music>, MusicError> {
+    let db = music_db_read()?;
+    let music = db.get(&id).map(|music| music.to_owned());
+    Ok(music)
+}
+
+pub fn update_data_in_db(id: u64, mut music: Music) -> Result<(), MusicError> {
+    let mut db = music_db_write()?;
+    music.id = id;
+    db.insert(id, music);
+    Ok(())
+}
+
+pub fn delete_data_from_db(id: u64) -> Result<(), MusicError> {
+    let mut db = music_db_write()?;
+    db.remove(&id);
+    Ok(())
+}

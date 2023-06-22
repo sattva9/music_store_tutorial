@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+
+{% block add_music %}
+
+<form action="{{ "/edit_music/{}"|format(music.id) }}" method="post">
+  <div class="mb-3">
+    <label for="songName" class="form-label">Song Name</label>
+    <input type="text" class="form-control" id="songName" name="song" placeholder="Enter song name" value="{{ music.song }}">
+    </div>
+  <div class="mb-3">
+    <label for="artistName" class="form-label">Artist Name</label>
+    <input type="text" class="form-control" id="artistName" name="artist" placeholder="Enter artist name" value="{{ music.artist }}">
+  </div>
+  <div class="mb-3">
+    <label for="genre" class="form-label">Genre</label>
+    <input type="text" class="form-control" id="genre" name="genre" placeholder="Enter genre" value="{{ music.genre }}">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Edit Song</button>
+</form>
+
+{% endblock %}

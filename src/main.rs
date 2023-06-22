@@ -26,5 +26,8 @@ fn routes(service_config: &mut ServiceConfig) {
         .route("/", web::get().to(welcome))
         .route("/list_music", web::get().to(list_music))
         .route("/add_music", web::get().to(add_music))
-        .route("/add_music_to_db", web::post().to(add_music_to_db));
+        .route("/add_music_to_db", web::post().to(add_music_to_db))
+        .route("/edit_music/{id}", web::get().to(edit_music))
+        .route("/edit_music/{id}", web::post().to(update_music))
+        .route("/delete_music/{id}", web::get().to(delete_music));
 }
